@@ -3,15 +3,16 @@
 
 // but you don't so you're going to write it from scratch:
 
+// Consider strings, null, arrays, objects, numbers & booleans
 var stringifyJSON = function (obj) {
   if (typeof obj === "string") {return '"' + obj + '"';}
-  if (obj === null) {return "" + obj;}
+  if (obj === null) {return "" + obj;} // need this because null is an object
 
   if(Array.isArray(obj)){
     var results = obj.map(function(item){
       return stringifyJSON(item);
-    }).join(",");
-    return "["+ results + "]";
+    });
+    return "["+ results.join(",") + "]";
   }
 
   if(typeof obj === "object") {
