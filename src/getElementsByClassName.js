@@ -4,6 +4,8 @@
 // };
 
 // But instead we're going to implement it from scratch:
+// The getElementsByClassName() method returns a collection of all 
+// elements in the document with the spec. class name, as a NodeList object
 
 var getElementsByClassName = function(className){
   var results = [];
@@ -16,3 +18,7 @@ var getElementsByClassName = function(className){
   getNodesByClassName(document.body);
   return results;
 };
+
+// classList returns the class name(s) of an element, as a DOMTokenList object
+// childNodes returns a collection of a node's child nodes, as a NodeList object
+// contains(class) --> returns boolean of whether an element has a spec. class name
