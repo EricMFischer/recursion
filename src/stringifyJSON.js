@@ -8,14 +8,14 @@ var stringifyJSON = function (obj) {
   if (typeof obj === "string") {return '"' + obj + '"';}
   if (obj === null) {return "" + obj;} // need this because null is an object
 
-  if(Array.isArray(obj)){
-    var results = obj.map(function(item){
+  if (Array.isArray(obj)) {
+    var results = obj.map(function(item) {
       return stringifyJSON(item);
     });
     return "["+ results.join(",") + "]";
   }
 
-  if(typeof obj === "object") {
+  if (typeof obj === "object") {
     var results = [];
     for (var key in obj) {
       if (typeof obj[key] === "function" || typeof obj[key] === undefined) {
@@ -29,3 +29,14 @@ var stringifyJSON = function (obj) {
 
   return "" + obj; // For numbers and booleans
 };
+
+/* JSON.stringify() converts a value to JSON notation representing it:
+
+Boolean, Number, and String objects are converted to the corresponding 
+primitive values during stringification, in accord with the traditional 
+conversion semantics.
+
+If undefined, a function, or a symbol is encountered during conversion,
+it is either omitted (in an object) or censored to null (in an array).
+
+*/
